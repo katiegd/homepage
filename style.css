@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
+
+:root {
+  --width: min(100vw, 42rem);
+  --full-width: 100vw;
+
+  --angle: -6deg;
+  --abs-angle: max(var(--angle), var(--angle) * -1);
+  --tan-alpha: tan(var(--abs-angle));
+  --skew-padding: calc(var(--width) * var(--tan-alpha) / 2);
+  --clip-padding: calc(var(--full-width) * var(--tan-alpha) / 2);
+}
+
+.fraunces-bold {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+}
+
+body {
+  font-family: "Fraunces", serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  position: relative;
+  padding: var(--skew-padding) 0;
+  margin-top: -1px;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(45deg, #654ea3, #eaafc8);
+  transform: skewY(var(--angle));
+  transform-origin: 50% 0;
+  z-index: 0;
+}
+
+.header-content {
+  position: relative;
+  padding: 2rem;
+  max-width: 50em;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.main-section {
+  padding: 2rem;
+  width: 100%;
+  font-size: 3rem;
+  font-weight: 900;
+  background-color: aliceblue;
+}
+
+.footer {
+  padding: 2rem;
+  width: 100%;
+  font-size: 3rem;
+  font-weight: 900;
+  background-color: cadetblue;
+}
